@@ -24,14 +24,16 @@
 }
 
 .btn {
-    background-color: white;
+    background-color: #A7B41E;
     color: black;
-    border: 1px solid black;
     padding: 0.5em 1em;
     text-decoration: none;
-    margin: 0.8em 0.3em;
+    text-transform: uppercase;
+    margin: 0.8em auto;
     display: inline-block;
     cursor: pointer;
+    width: 120px;
+    height: 60px;
 }
 
 .hide {

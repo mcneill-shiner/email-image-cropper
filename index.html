@@ -32,45 +32,63 @@
             </div>
             <div class="col-3">
                 <h2>Crop Settings</h2>
-                <fieldset class="form-group">
-                    <div class="row">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="cropFreely">
-                            <label for="cropFreely" class="form-check-label">Crop Freely</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="cropRatio">
-                            <label for="cropRatio" class="form-check-label">By Ratio</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="cropRows">
-                            <label for="cropRows" class="form-check-label">Rows</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="cropColumns">
-                            <label for="cropColumns" class="form-check-label">Columns</label>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset class="form-group">
-                    <div class="row">
+                <form>
+                    <fieldset class="form-group">
                         <div class="row">
-                            <div class="col">
-                                <div class="form-check">
-                                    <input type="radio" class="form-check-input" id="fixedNumber">
-                                    <label for="fixedNumber" class="form-check-label">Fixed Number</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="cropFreely" value="cropFreely" checked>
+                                <label for="cropFreely" class="form-check-label">Crop Freely</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="cropRatio" value="cropRatio">
+                                <label for="cropRatio" class="form-check-label">By Ratio</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="cropRows" value="cropRows">
+                                <label for="cropRows" class="form-check-label">Rows</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="cropColumns" value="cropColumns">
+                                <label for="cropColumns" class="form-check-label">Columns</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" id="fixedNumber" value="fixedNumber" checked>
+                                        <label for="fixedNumber" class="form-check-label">Fixed Number</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" min="1" max="5">
                                 </div>
                             </div>
-                            <div class="col">
-                                <input type="text" class="form-control">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="splitFreely" value="splitFreely">
+                                <label for="splitFreely" class="form-check-label">Crop Freely</label>
                             </div>
                         </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="splitFreely">
-                            <label for="splitFreely" class="form-check-label">Crop Freely</label>
-                        </div>
+                    </fieldset>
+                    <button class="btn crop">Crop</button>
+                </form>
+
+                <h2>Download Settings</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="imageWidth">Image Width (px)</label>
+                        <input type="number" class="form-control" min="100" max="1200" value="600">
                     </div>
-                </fieldset>
+                    <div class="form-group">
+                        <label for="fileName">File Name (optional)</label>
+                        <input type="text" class="form-control" value="My File"> 
+                    </div>
+                    <button class="btn download-selected">Download Selected</button>
+                    <button class="btn download-all">Download All</button>
+                </form>
+                
 
                 <div class="box">
                     <div class="options hide">
