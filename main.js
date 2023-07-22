@@ -3,13 +3,15 @@ let img_result = document.querySelector(".img-result");
 let img_w = document.querySelector(".img-w");
 let img_h = document.querySelector(".img-h");
 let options = document.querySelector(".options");
-let save = document.querySelector(".save");
+let crop_settings = document.querySelector(".crop-settings");
+let crop = document.querySelector(".crop");
 let cropped = document.querySelector(".cropped");
 let dwn = document.querySelector(".download");
+let dwn_settings = document.querySelector(".download-settings");
 let upload = document.querySelector("#form-control-file");
 let cropper = "";
 
-// On change, show image with crop options
+// On change/upload, show image with crop options
 upload.addEventListener("change", (e) => {
     if (e.target.files.length) {
         //start file reader
@@ -24,9 +26,8 @@ upload.addEventListener("change", (e) => {
                 result.innerHTML = "";
                 // append new image
                 result.appendChild(img);
-                // show save btn and options
-                save.classList.remove("hide");
-                options.classList.remove("hide");
+                // show crop settings/button
+                crop_settings.classList.remove("hide");
                 // init cropper
                 cropper = new Cropper(img);
             }
@@ -35,8 +36,8 @@ upload.addEventListener("change", (e) => {
     }
 })
 
-// Save button crops the image
-save.addEventListener("click", (e) => {
+// Crop button crops the image, displays completed
+crop.addEventListener("click", (e) => {
     console.log(e);
     e.preventDefault();
     // get result to data URI
@@ -50,7 +51,27 @@ save.addEventListener("click", (e) => {
     img_result.classList.remove("hide");
     // display new image
     img_result.src = imgSrc;
-    dwn.classList.remove("hide");
+    dwn_settings.classList.remove("hide");
     dwn.download = "imagename.png";
     dwn.setAttribute("href", imgSrc);
 });
+
+// // Crop button crops the image (original)
+// crop.addEventListener("click", (e) => {
+//     console.log(e);
+//     e.preventDefault();
+//     // get result to data URI
+//     let imgSrc = cropper    
+//         .getCroppedCanvas({
+//             width: img_w.ariaValueMax, // input value
+//         })
+//         .toDataURL();
+//     // remove hide class of img
+//     cropped.classList.remove("hide");
+//     img_result.classList.remove("hide");
+//     // display new image
+//     img_result.src = imgSrc;
+//     dwn.classList.remove("hide");
+//     dwn.download = "imagename.png";
+//     dwn.setAttribute("href", imgSrc);
+// });

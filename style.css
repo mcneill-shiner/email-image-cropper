@@ -44,16 +44,6 @@
     max-width: 100%;
 }
 
-.col {
-    border: 1px solid red;
-}
-.col-4 {
-    border: 1px solid salmon;
-}
-.col-3 {
-    border: 1px solid palevioletred;
-}
-
 .small-input {
     width: 50px;
 }
