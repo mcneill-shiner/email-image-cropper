@@ -56,6 +56,24 @@ crop.addEventListener("click", (e) => {
     dwn.setAttribute("href", imgSrc);
 });
 
+// Change aspect ratio of the crop box; input ratio (num), return updated cropper
+// setAspectRatio: function setAspectRatio(aspectRatio) {
+//     var options = this.options;
+//     if (!this.disabled && !isUndefined(aspectRatio)) {
+//     // 0 -> NaN
+//     options.aspectRatio = Math.max(0, aspectRatio) || NaN;
+//     if (this.ready) {
+//         this.initCropBox();
+//         if (this.cropped) {
+//         this.renderCropBox();
+//         }
+//     }
+//     }
+//     return this;
+// }
+
+
+
 // // Crop button crops the image (original)
 // crop.addEventListener("click", (e) => {
 //     console.log(e);
