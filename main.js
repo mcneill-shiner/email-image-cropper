@@ -2,7 +2,6 @@ let result = document.querySelector(".result");
 let img_result = document.querySelector(".img-result");
 let img_w = document.querySelector(".img-w");
 let img_h = document.querySelector(".img-h");
-let options = document.querySelector(".options");
 let crop_settings = document.querySelector(".crop-settings");
 let crop = document.querySelector(".crop");
 let cropped = document.querySelector(".cropped");
@@ -10,6 +9,37 @@ let dwn = document.querySelector(".download");
 let dwn_settings = document.querySelector(".download-settings");
 let upload = document.querySelector("#form-control-file");
 let cropper = "";
+let options = {
+    aspectRatio: 16 / 9,
+    preview: '.img-preview',
+    ready: function (e) {
+      console.log(e.type);
+    },
+    cropstart: function (e) {
+      console.log(e.type, e.detail.action);
+    },
+    cropmove: function (e) {
+      console.log(e.type, e.detail.action);
+    },
+    cropend: function (e) {
+      console.log(e.type, e.detail.action);
+    },
+    crop: function (e) {
+      var data = e.detail;
+
+      console.log(e.type);
+    //   dataX.value = Math.round(data.x);
+    //   dataY.value = Math.round(data.y);
+    //   dataHeight.value = Math.round(data.height);
+    //   dataWidth.value = Math.round(data.width);
+    //   dataRotate.value = typeof data.rotate !== 'undefined' ? data.rotate : '';
+    //   dataScaleX.value = typeof data.scaleX !== 'undefined' ? data.scaleX : '';
+    //   dataScaleY.value = typeof data.scaleY !== 'undefined' ? data.scaleY : '';
+    },
+    zoom: function (e) {
+      console.log(e.type, e.detail.ratio);
+    }
+};
 
 // On change/upload, show image with crop options
 upload.addEventListener("change", (e) => {
