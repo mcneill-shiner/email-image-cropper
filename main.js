@@ -36,6 +36,43 @@ upload.addEventListener("change", (e) => {
     }
 })
 
+// Listen for change to aspect ratio, update cropper
+crop_settings.addEventListener("change", (e) => {
+    const target = e.target || e.srcElement;
+    console.log(e);
+
+    if (!cropper) {
+        return;
+    }
+
+    // do we need this?
+    // if (target.tagName.toLowerCase() === 'label') {
+    //       target = target.querySelector('input');
+    //     }
+
+    if (target.type == 'checkbox' || target.type == 'radio') {
+      if (target.type == 'checkbox') {
+        options[target.name] = target.checked;
+        cropBoxData = cropper.getCropBoxData();
+        canvasData = cropper.getCanvasData();
+
+        options.ready = function () {
+          console.log('ready');
+          cropper.setCropBoxData(cropBoxData).setCanvasData(canvasData);
+        };
+      } else {
+        options[target.name] = target.value;
+        options.ready = function () {
+          console.log('ready');
+        };
+      }
+
+      // Restart
+      cropper.destroy();
+      cropper = new Cropper(image, options);
+    }
+})
+
 // Crop button crops the image, displays completed
 crop.addEventListener("click", (e) => {
     console.log(e);
