@@ -1,5 +1,5 @@
-let result = document.querySelector(".result");
-let img_result = document.querySelector(".img-result");
+let img_container = document.querySelector(".img-container");
+let cropped_img = document.querySelector(".cropped-img");
 let img_w = document.querySelector(".img-w");
 let img_h = document.querySelector(".img-h");
 let crop_settings = document.querySelector(".crop-settings");
@@ -61,19 +61,21 @@ let options = {
 
 // On change/upload, show image with crop options
 upload.addEventListener("change", (e) => {
+    console.log(e)
     if (e.target.files.length) {
         //start file reader
         const reader = new FileReader();
         reader.onload = (e) => {
+            console.log(e)
             if (e.target.result) {
                 // create new image
                 let img = document.createElement("img");
                 img.id = "image";
                 img.src = e.target.result;
                 // clean result before
-                result.innerHTML = "";
+                img_container.innerHTML = "";
                 // append new image
-                result.appendChild(img);
+                img_container.appendChild(img);
                 // show crop settings/button
                 crop_settings.classList.remove("hide");
                 // init cropper
@@ -133,9 +135,9 @@ crop.addEventListener("click", (e) => {
         .toDataURL();
     // remove hide class of img
     cropped.classList.remove("hide");
-    img_result.classList.remove("hide");
+    cropped_img.classList.remove("hide");
     // display new image
-    img_result.src = imgSrc;
+    cropped_img.src = imgSrc;
     dwn_settings.classList.remove("hide");
     dwn.download = "imagename.png";
     dwn.setAttribute("href", imgSrc);
