@@ -38,8 +38,26 @@ let options = {
     },
     zoom: function (e) {
       console.log(e.type, e.detail.ratio);
-    }
+    },
+    // zoomOnWheel: false,
+    // zoomOnTouch: false,
+    // zoomable: false
 };
+
+
+// config: any = {
+//     dragMode: 'none',
+//     highlight: false,
+//     modal: false,
+//     responsive: true,
+//     scalable: true,
+//     autoCrop: false,
+//     center: false,
+//     background: false,
+//     zoomable: false,
+//     zoomOnWheel: false,
+// };
+// CropperSelection.zoomable = false;
 
 // On change/upload, show image with crop options
 upload.addEventListener("change", (e) => {
