@@ -126,6 +126,8 @@ crop_settings.addEventListener("change", (e) => {
 // Crop button crops the image, displays completed
 crop.addEventListener("click", (e) => {
     console.log(e);
+    console.log(img_w.value)
+    console.log(img_w.ariaValueMax)
     e.preventDefault();
     // get result to data URI
     let imgSrc = cropper    
@@ -139,9 +141,15 @@ crop.addEventListener("click", (e) => {
     // display new image
     cropped_img.src = imgSrc;
     dwn_settings.classList.remove("hide");
-    dwn.download = "imagename.png";
+
+    let file_name = document.querySelector('#file-name').value;
+    console.log(file_name)
+    dwn.download = file_name;
+    // dwn.download = "imagename.png";
     dwn.setAttribute("href", imgSrc);
 });
+
+
 
 // Change aspect ratio of the crop box; input ratio (num), return updated cropper
 // setAspectRatio: function setAspectRatio(aspectRatio) {
