@@ -47,3 +47,8 @@
 .small-input {
     width: 50px;
 }
+
+.img-container {
+    max-height: 497px;
+    min-height: 200px;
+}
